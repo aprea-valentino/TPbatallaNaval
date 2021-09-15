@@ -18,11 +18,12 @@ class TableroJugador():
         
 
     def misildisparado(self, posX, posY):
-        
+        '''Hunde el misil de las coordenadas ingresadas'''
         self.bot.tablero.lista[posX][posY].misil()
                     
             
     def dispararTorpedo(self, posX, posY):
+        '''Verifica si en las coordenadas ingresadas habia un barco'''
         if self.bot.tablero.lista[posX][posY].barco == None:
             self.misildisparado(posX, posY)
             print("Agua")
@@ -41,6 +42,7 @@ class TableroJugador():
 
                 
     def ponerCoordenadas(self):
+        '''Devuelve las posX y posY en una lista'''
         posY = str(input("Ingrese una letra: "))
         posY = posY.upper()
         letras = ['A','B','C','D','E','F','G','H']

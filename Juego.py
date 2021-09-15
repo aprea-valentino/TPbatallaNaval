@@ -9,6 +9,7 @@ class Juego:
         self.Inicio()
 
     def Inicio(self):
+        '''Comienzo del juego'''
         self.decision()
 
         while (self.jugador.bot.tablero.contador != 8):
@@ -34,6 +35,7 @@ class Juego:
             print("Perdiste contra un bot")
 
     def misilJugador(self, posX, posY):
+        '''Verifica si las coordenadas ingresadas le pegaron a un barco'''
         if self.jugador.tablero.lista[posX][posY].barco == None:
             self.misilHundido(posX, posY)
             print("Agua")
@@ -45,13 +47,16 @@ class Juego:
             print("Gano el bot")
 
     def barcoHundidoJ(self, posX, posY):
+        '''Hunde el barco de las coordenadas ingresadas'''
         self.jugador.tablero.lista[posX][posY].sacarBarco()
 
     def misilHundido(self, posX, posY):
+        '''Hunde el misil de las coordenadas ingresadas'''
         self.jugador.tablero.lista[posX][posY].misil()
 
     def decision(self):
         '''Decide si poner random o no, todos los barcos'''
+        
         rta = int(input("Desea poner los 8 barcos manualmente(1) o de manera random(2)"))
         if rta == 1:
             for i in range(0,8):
